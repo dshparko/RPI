@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/toggle_button.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"> 
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+        crossorigin="anonymous"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+    <title>Fancy weather</title>
+</head>
+<body>
+    <div id="content">
+        <div id="top-bar">
+            <div id="settings">
+                <div class="refresh-back">
+                    <img src="resources/Refresh_icon.png">
+                </div>
+                <select class="language-choice">
+                    <option>RU</option>
+                    <option>EN</option>
+                </select>
+
+                <div class="form_toggle">
+                    <div class="form_toggle-item item-1">
+                        <input id="fid-1" type="radio" name="radio" value="off">
+                        <label for="fid-1">°F</label>
+                    </div>
+                    <div class="form_toggle-item item-2">
+                        <input id="fid-2" type="radio" name="radio" value="on" checked>
+                        <label for="fid-2">°C</label>
+                    </div>
+                </div>
+            </div>
+            <div class="search-form">
+                <div class="location-field">
+                    <input id="location-input" placeholder="Enter city or zip" required>
+                    <div class='voice-control'>
+                        <i class="fa fa-microphone"></i>
+                    </div>
+                </div>
+                <button class="search-button">Search</button>
+            </div>
+        </div>
+        <div id="main">
+            <div id="weather">
+                <div id="weather-header">
+                    <h2 id="location-header">-</h2>
+                    <time id="date-time">Mon 28 October 00:00:00</time>
+                </div>
+                <div id="today-weather-forecast">
+                    <div class="today-temperature">
+                        <span id="today-temperature-value">0</span>
+                        <span id="degree-symbol">°</span>
+                    </div>
+                    <div class="weather-info">
+                        <img id="today-weather-info" src="" alt="">
+                        <p class="weather-info-item" id="description">-</p>
+                        <div class="weather-info-item">
+                            <p id="feels-like">FEELS LIKE:&nbsp;</p>
+                            <span id="feels-like-value">0</span>°
+                        </div>
+                        <div class="weather-info-item">
+                            <p id="wind-speed">WIND:&nbsp;</p>
+                            <span id="wind-speed-value">0</span> m/s
+                        </div>
+                        <div class="weather-info-item">
+                            <p id="humidity">HUMIDITY:&nbsp;</p>
+                            <span id="humidity-value">0</span>%
+                        </div>
+                    </div>
+                </div>
+                <div class="future-forecasts">
+                    <div class="small-forecast">
+                        <p class="week-day" id="day1">-</p>
+                        <div class="future-weather-info">
+                            <p class="future-temperature" id="temperature1">0°</p>
+                            <img id="future-weather-info1" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="small-forecast">
+                        <p class="week-day" id="day2">-</p>
+                        <div class="future-weather-info">
+                            <p class="future-temperature" id="temperature2">0°</p>
+                            <img id="future-weather-info2" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="small-forecast">
+                        <p class="week-day" id="day3">-</p>
+                        <div class="future-weather-info">
+                            <p class="future-temperature" id="temperature3">0°</p>
+                            <img id="future-weather-info3" src="" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="location-container">
+                <div id="map">
+                </div>
+                <div class="coordinates">
+                    <div class="coord">
+                        <p id="latitude">Latitude:&nbsp;</p>
+                        <span id="latitude-value">0</span>
+                    </div>
+                    <div class="coord">
+                        <p id="longitude">Longitude:&nbsp;</p>
+                        <span id="longitude-value">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app/background.js"></script>
+    <script src="app/time.js"></script>
+    <script src="app/geolocation.js"></script>
+    <script src="app/voice.js"></script>
+    <script src="app/weather.js"></script>
+    <script src="app/locale.js"></script>
+</body>
+</html>
